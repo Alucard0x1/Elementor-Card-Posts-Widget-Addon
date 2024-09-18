@@ -35,7 +35,7 @@
 
 1. Download or clone this repository to your WordPress site's `wp-content/plugins` directory.
    ```bash
-   git clone https://github.com/yourusername/alucard0x1-card-posts.git
+   git clone https://github.com/Alucard0x1/Elementor-Card-Posts-Widget-Addon.git
 
 2. Navigate to the WordPress admin dashboard and activate the **Alucard0x1 Card Posts** plugin in the `Plugins` section.
 
