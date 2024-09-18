@@ -11,21 +11,17 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit;
 }
-
-// Define constants
 define( 'ALUCARD0X1_CARD_POSTS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ALUCARD0X1_CARD_POSTS_URL', plugin_dir_url( __FILE__ ) );
 
-// Include the widget file
 function alucard0x1_register_card_posts_widget( $widgets_manager ) {
     require_once ALUCARD0X1_CARD_POSTS_PATH . 'widgets/card-posts-widget.php';
     $widgets_manager->register( new \Elementor\Alucard0x1_Card_Posts_Widget() );
 }
 add_action( 'elementor/widgets/register', 'alucard0x1_register_card_posts_widget' );
 
-// Enqueue Styles
 function alucard0x1_card_posts_enqueue_styles() {
     wp_enqueue_style( 'alucard0x1-card-posts-style', ALUCARD0X1_CARD_POSTS_URL . 'assets/css/style.css' );
 }
