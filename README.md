@@ -4,6 +4,15 @@
 
 **Elementor-Card-Posts-Widget-Addon** is a custom Elementor widget that allows you to display a responsive grid of posts in a card format. The widget offers various customization options, including the number of posts to display per device (desktop, tablet, mobile). Each card includes a post image, title, excerpt, author information, date, and category, with the entire card clickable to navigate to the post.
 
+## Screenshots
+
+![Screenshot 1](screenshot1.png)  
+_A desktop view of the Alucard0x1 Card Posts widget._
+
+![Screenshot 2](screenshot2.png)  
+_A mobile view of the Alucard0x1 Card Posts widget._
+
+
 ## Features
 
 - **Responsive Design**: The widget automatically adjusts the number of cards displayed based on screen size:
@@ -54,13 +63,6 @@
 3. **Fully Clickable Cards**:
    - Each card is fully clickable, providing a smooth user experience.
 
-## Screenshots
-
-![Screenshot 1](screenshot1.png)  
-_A desktop view of the Alucard0x1 Card Posts widget._
-
-![Screenshot 2](screenshot2.png)  
-_A mobile view of the Alucard0x1 Card Posts widget._
 
 ## Requirements
 
