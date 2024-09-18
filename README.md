@@ -7,11 +7,6 @@
 ## Screenshots
 
 ![Screenshot 1](screenshot1.png)  
-_A desktop view of the Alucard0x1 Card Posts widget._
-
-![Screenshot 2](screenshot2.png)  
-_A mobile view of the Alucard0x1 Card Posts widget._
-
 
 ## Features
 
