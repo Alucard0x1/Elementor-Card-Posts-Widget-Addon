@@ -2,7 +2,7 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
 class Alucard0x1_Card_Posts_Widget extends Widget_Base {
@@ -16,7 +16,7 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-posts-ticker'; // Choose an appropriate icon from Elementor
+        return 'eicon-posts-ticker';
     }
 
     public function get_categories() {
@@ -24,7 +24,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
     }
 
     protected function register_controls() {
-
         $this->start_controls_section(
             'content_section',
             [
@@ -33,7 +32,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
             ]
         );
 
-        // Number of posts for desktop
         $this->add_control(
             'desktop_posts',
             [
@@ -45,7 +43,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
             ]
         );
 
-        // Number of posts for tablet
         $this->add_control(
             'tablet_posts',
             [
@@ -57,7 +54,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
             ]
         );
 
-        // Number of posts for mobile
         $this->add_control(
             'mobile_posts',
             [
@@ -69,7 +65,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
             ]
         );
 
-        // Total posts to render
         $this->add_control(
             'total_posts',
             [
@@ -82,21 +77,15 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
         );
 
         $this->end_controls_section();
-
-        // Style Section (Optional)
-        // Add styling controls here if needed
-
     }
 
     protected function render() {
-
         $settings = $this->get_settings_for_display();
         $desktop_posts = $settings['desktop_posts'];
         $tablet_posts  = $settings['tablet_posts'];
         $mobile_posts  = $settings['mobile_posts'];
         $total_posts   = $settings['total_posts'];
 
-        // Query Arguments
         $args = [
             'post_type'      => 'post',
             'posts_per_page' => $total_posts,
@@ -106,7 +95,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
         $query = new \WP_Query( $args );
 
         if ( $query->have_posts() ) :
-            // Generate a unique ID for this widget instance
             $unique_id = 'alucard0x1-card-container-' . $this->get_id();
             ?>
             <div class="alucard0x1--card-container" id="<?php echo esc_attr($unique_id); ?>">
@@ -147,7 +135,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
             </div>
 
             <style>
-                /* Dynamic Grid Layout Based on Widget Settings */
                 #<?php echo esc_attr($unique_id); ?> {
                     display: grid;
                     grid-template-columns: repeat(<?php echo esc_attr($desktop_posts); ?>, 1fr);
@@ -167,11 +154,10 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
                     }
                 }
 
-                /* Make the entire card clickable */
                 .alucard0x1--card-link {
                     text-decoration: none;
                     color: inherit;
-                    display: block; /* Ensure the link covers the entire card */
+                    display: block;
                 }
 
                 .alucard0x1--card-link:hover .alucard0x1--card,
@@ -186,8 +172,7 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
                 }
 
                 .alucard0x1--card {
-                    /* Existing styles */
-                    width: 100%; /* The card will take 100% of its grid column */
+                    width: 100%;
                     font-family: "Segoe UI", Arial, sans-serif;
                     background: #fff;
                     border: 1px solid #d3d3d3;
@@ -195,14 +180,14 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
                     overflow: hidden;
                     display: flex;
                     flex-direction: column;
-                    margin: 0; /* Remove any margin */
+                    margin: 0;
                     transition: box-shadow 0.3s ease, transform 0.3s ease;
                 }
 
                 .alucard0x1--card-image {
                     width: 100%;
-                    height: 207px !important; /* Fixed height */
-                    object-fit: cover; /* Ensures the image maintains its aspect ratio while covering the area */
+                    height: 207px !important;
+                    object-fit: cover;
                     display: block;
                 }
 
@@ -230,7 +215,7 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
                 .alucard0x1--footer {
                     display: flex;
                     justify-content: space-between;
-                    align-items: baseline; /* Changed from center to baseline */
+                    align-items: baseline;
                     padding-top: 12px;
                     font-size: 12px;
                 }
@@ -254,8 +239,6 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
 
                 .alucard0x1--date {
                     color: #555;
-                    /* Optional: Adjust font size for better alignment */
-                    /* font-size: 14px; */
                 }
 
                 .alucard0x1--category {
@@ -263,20 +246,19 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
                     font-weight: bold;
                     text-transform: uppercase;
                     font-size: 14px;
-                    margin-top: 2px; /* Adjust this value as needed */
+                    margin-top: 2px;
                 }
 
-                /* Responsive Design */
                 @media (max-width: 1024px) {
                     .alucard0x1--card-container {
-                        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+                        grid-template-columns: repeat(2, 1fr);
                         gap: 34px;
                     }
                 }
 
                 @media (max-width: 768px) {
                     .alucard0x1--card-container {
-                        grid-template-columns: 1fr; /* 1 column on mobile */
+                        grid-template-columns: 1fr;
                         gap: 34px;
                     }
                 }
@@ -288,7 +270,5 @@ class Alucard0x1_Card_Posts_Widget extends Widget_Base {
     }
 
     protected function content_template() {
-        // Optional: Add JavaScript-based rendering if needed
     }
-
 }
